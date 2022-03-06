@@ -1,0 +1,51 @@
+header {
+  font-family: Futura, Trebuchet MS;
+  font-weight: bold condensed;
+  color: #000000;
+  font-size: 22px;
+  padding:3px;
+}
+
+
+h1 {
+  font-family: Futura, Trebuchet MS;
+  font-weight: bold condensed;
+  color: #000000; 
+  font-size: 32px;
+  padding:3px;
+}
+
+body {
+  font-family: Futura, Trebuchet MS;
+  color: #006b15; 
+  font-size: 18px;
+}
+   
+#content {
+  text-align: center;
+  padding:3px;
+}
+
+p {
+  padding:3px;
+}
+
+#div1 {
+  width: 100px;
+  height: 400px;
+  background-color: #00FFFF;
+}
+#div2 {
+  width: 200px;
+  height: 400px;
+  background-color: #FF00FF;
+}
+#div3 {
+  width: 100px;
+  height: 400px;
+  background-color: #FFFF00;
+}
+
+#artHere{
+  display: inline-block;
+}

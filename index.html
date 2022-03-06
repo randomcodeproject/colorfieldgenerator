@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+ 
+    <title> This is Valuable Artwork </title>
+</head>
+
+<body>
+  
+    <div id="content">
+   
+    <header>This is <s>a Tax Break</s> Valuable Artwork </header>
+
+   <h1 id="artTitle">Title here</h1>
+
+   <div id="artHere">
+       <div id="div1"></div> <div id="div2" ></div> <div id="div3" ></div>
+   </div>
+ 
+   <p id="artCost">Price here</p>  
+
+    </div>
+</body>
+
+<script>
+
+    function generateArt(){
+    
+    var hv = true; 
+    var maxSize = 400
+
+    hv = (getRandomNum(2)===0);
+    if(!hv){
+        maxSize = 250
+    }
+    var h1size = 25 + getRandomNum(maxSize - 75);
+    var h2size = 25 + getRandomNum(maxSize - h1size - 50);
+    var h3size =   (maxSize - h1size - h2size);
+    var containerEl=document.getElementById("artHere");
+	var h1El=document.getElementById("div1");
+    var h2El=document.getElementById("div2");
+    var h3El=document.getElementById("div3");
+    
+    h1El.style.backgroundColor = "#"+getRandomColor();
+    h2El.style.backgroundColor = "#"+getRandomColor();
+    h3El.style.backgroundColor = "#"+getRandomColor();
+
+    var colorCount = getRandomNum(12)
+    if(colorCount<3){
+        var sharedColor = "#"+getRandomColor();
+
+        if(colorCount === 0){
+            h2El.style.backgroundColor = sharedColor;
+            h3El.style.backgroundColor = sharedColor;
+        }
+        else if(colorCount === 1){
+            h1El.style.backgroundColor = sharedColor;
+            h3El.style.backgroundColor = sharedColor;
+        }
+        else{
+            h1El.style.backgroundColor = sharedColor;
+            h2El.style.backgroundColor = sharedColor;
+        }
+
+    }
+    
+
+    if(hv){
+        containerEl.style.display = 'inline-block';
+        h1El.style.width = h1size+"px";
+        h1El.style.height = 250+"px";
+        h2El.style.width = h2size+"px";
+        h2El.style.height = 250+"px";
+        h3El.style.width = h3size+"px";
+        h3El.style.height = 250+"px";
+
+        h1El.style.float = 'left';
+        h2El.style.float = 'left';
+        h3El.style.float = 'left';
+    }
+    else{
+        h1El.style.height = h1size+"px";
+        h1El.style.width = 400+"px";
+        h2El.style.height = h2size+"px";
+        h2El.style.width = 400+"px";
+        h3El.style.height = h3size+"px";
+        h3El.style.width = 400+"px";
+    }
+
+        var cost = "$"+(getRandomNum(10000000)+10000);
+
+        document.getElementById("artCost").innerText = cost;
+
+        var nameLibrary = "Admiration,Adoration,Appreciation,Amusement,Anxiety,Awe,Awkwardness,Boredom,Calmness,Confusion,Craving,Disgust,Pain,Entrancement,Envy,Excitement,Fear,Horror,Interest,Joy,Nostalgia,Romance,Sadness,Satisfaction,Desire,Sympathy,Triumph"
+        const names = nameLibrary.split(",");
+
+        const ithElement = (arr, n = 0) => (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
+        console.log(ithElement(names,getRandomNum(names.length)));
+        document.getElementById("artTitle").innerText = ithElement(names,getRandomNum(names.length));
+    }
+    function getRandomNum(max) {
+        return Math.floor(Math.random() * max);
+    }
+    function getRandomColor(){
+        return Math.floor(Math.random()*16777215).toString(16);    
+    }
+    window.onload=generateArt();
+</script>
+</html>
